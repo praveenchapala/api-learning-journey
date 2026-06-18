@@ -1,0 +1,228 @@
+Day 1 - API Fundamentals
+Objective
+The goal of Day 1 was to understand the fundamental concepts behind APIs and how applications communicate with each other. Before learning APIs, it is important to understand the components involved in communication between applications, servers, and databases.
+
+What is a Client?
+A client is an application that sends requests to another system to retrieve or manipulate data.
+
+Examples:
+
+Web Browsers (Chrome, Edge, Firefox)
+Mobile Applications (Instagram, LinkedIn, YouTube)
+Desktop Applications
+Whenever a user performs an action such as opening a profile, searching for a video, or submitting a form, the client sends a request to a server through an API.
+
+Example:
+
+When I open my LinkedIn profile, the LinkedIn application acts as the client and requests my profile information from LinkedIn's servers.
+
+What is a Server?
+A server is a computer system that receives requests, processes them, accesses data if necessary, and returns responses.
+
+Responsibilities of a server:
+
+Store application data
+Process requests
+Perform business logic
+Communicate with databases
+Return responses to clients
+Example:
+
+When I search for a video on YouTube, YouTube's servers process the request and return matching videos.
+
+What is an API?
+API stands for Application Programming Interface.
+
+An API acts as a bridge between the client and the server. It allows different software systems to communicate with each other in a controlled and secure manner.
+
+Instead of allowing direct access to the database, applications interact with APIs.
+
+Example:
+
+Instagram App → API → Server → Database
+
+The API receives the request, processes it, and returns the required information.
+
+What is a Request?
+A request is a message sent from a client to a server asking for data or requesting an action.
+
+Examples:
+
+Fetch user profile
+Create a new post
+Update account information
+Delete a record
+Every interaction in an application starts with a request.
+
+What is a Response?
+A response is the information returned by the server after processing a request.
+
+Responses may contain:
+
+Data
+Success messages
+Error messages
+Status codes
+Example:
+
+Request: Get User Profile
+
+Response:
+
+Name: Praveen Followers: 500 Connections: 300
+
+What is HTTP?
+HTTP (HyperText Transfer Protocol) is the communication protocol used between clients and servers.
+
+It defines how requests and responses should be sent over the internet.
+
+Most modern APIs use HTTP for communication.
+
+HTTP Methods
+HTTP methods define the action to be performed on a resource.
+
+GET
+Used to retrieve data.
+
+Example:
+
+GET /users
+
+Returns a list of users.
+
+POST
+Used to create new data.
+
+Example:
+
+POST /users
+
+Creates a new user.
+
+PUT
+Used to update existing data.
+
+Example:
+
+PUT /users/1
+
+Updates information for user 1.
+
+DELETE
+Used to remove data.
+
+Example:
+
+DELETE /users/1
+
+Deletes user 1.
+
+Status Codes
+Status codes indicate the result of a request.
+
+200 OK
+The request was successful.
+
+201 Created
+A new resource was successfully created.
+
+401 Unauthorized
+Authentication is required to access the resource.
+
+404 Not Found
+The requested resource could not be found.
+
+500 Internal Server Error
+An unexpected error occurred on the server.
+
+Endpoints
+An endpoint is a specific URL where an API can be accessed.
+
+Examples:
+
+/users /products /orders
+
+Each endpoint represents a specific resource.
+
+Path Parameters
+Path parameters identify a specific resource.
+
+Example:
+
+/users/5
+
+The value 5 represents the ID of the user being requested.
+
+This endpoint retrieves information about a specific user.
+
+Query Parameters
+Query parameters are used to filter or search data.
+
+Example:
+
+/users?city=Mysore
+
+This endpoint requests users whose city is Mysore.
+
+Multiple query parameters can be used:
+
+/users?city=Mysore&age=21
+
+JSON Objects
+JSON (JavaScript Object Notation) is the most common format used for exchanging data through APIs.
+
+Example:
+
+{ "id": 1, "name": "Praveen", "city": "Mysore" }
+
+A JSON object represents a single entity.
+
+JSON Arrays
+A JSON array contains multiple JSON objects.
+
+Example:
+
+[ { "id": 1, "name": "Praveen" }, { "id": 2, "name": "Rahul" } ]
+
+Arrays are commonly returned when requesting collections of data.
+
+Practical Exploration
+For practical understanding, I explored a public API:
+
+https://jsonplaceholder.typicode.com/users
+
+Request
+GET /users
+
+Observations
+Returned a collection of users
+Response format was JSON
+Status code returned was 200 OK
+Data was returned as an array of user objects
+Each user contained fields such as id, name, username, email, address, phone, website, and company
+Collection vs Resource
+Collection Endpoint:
+
+/users
+
+Returns multiple users.
+
+Resource Endpoint:
+
+/users/1
+
+Returns a specific user.
+
+This helped me understand the difference between retrieving an entire collection and retrieving a single resource.
+
+Key Takeaways
+APIs act as a bridge between applications and servers.
+Most APIs communicate using HTTP.
+HTTP methods define actions such as retrieving, creating, updating, and deleting data.
+Status codes indicate the result of a request.
+JSON is the standard format for exchanging API data.
+Understanding requests and responses is the foundation of API development.
+Conclusion
+Day 1 focused on building a strong foundation in API fundamentals. Understanding these concepts is essential before working with real-world APIs, authentication, databases, and backend development.
+
+The next step is to start consuming real APIs and building practical projects to understand how these concepts work in real applications.
