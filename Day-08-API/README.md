@@ -2,7 +2,7 @@
 
 ## Overview
 
-On Day 5 of my API Learning Journey, I built an API Testing Playground to understand how real-world applications interact with APIs, process user input, handle responses, and manage errors.
+On Day 8 of my API Learning Journey, I built an API Testing Playground to understand how real-world applications interact with APIs, process user input, handle responses, and manage errors.
 
 In previous projects, API requests were either fixed or controlled through a dropdown menu. In this project, I allowed users to enter their own User ID and dynamically fetch information from an API.
 
