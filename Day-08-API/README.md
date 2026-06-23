@@ -1,4 +1,4 @@
-# Day 5 - API Testing Playground
+# Day 8 - API Testing Playground
 
 ## Overview
 
