@@ -518,3 +518,11 @@ Building this project helped me understand how real-world applications communica
 This project strengthened my understanding of API consumption, testing, response handling, and error management.
 
 It helped me move beyond simply fetching data and taught me how professional applications provide a complete and reliable user experience when working with APIs.
+
+
+
+
+-----------------------------------------------------------
+This is the end of day 8 of my API Learning Journey.
+This is the mock data that  iam adding just for the sake of generating pull requests.
+
