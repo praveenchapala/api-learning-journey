@@ -1,32 +1,137 @@
-const button =
-    document.getElementById("searchBtn");
+const loadBtn =
+    document.getElementById("loadBtn");
 
-button.addEventListener("click", async function () {
+const dateInput =
+    document.getElementById("dateInput");
 
-    const username =
-        document.getElementById("username").value;
+const result =
+    document.getElementById("result");
 
-    const response = await fetch(
-        `https://api.github.com/users/${username}`
-    );
+// Set today's date automatically
 
-    const user =
-        await response.json();
+const today =
+    new Date().toISOString().split("T")[0];
 
-    document.getElementById("profile").innerHTML = `
-    <img src="${user.avatar_url}" alt="Profile Picture">
+dateInput.value = today;
 
-    <h2>${user.name}</h2>
+loadBtn.addEventListener(
+    "click",
+    getNASAData
+);
 
-    <p><strong>Username:</strong> ${user.login}</p>
+async function getNASAData() {
 
-    <p><strong>Bio:</strong> ${user.bio}</p>
+    const selectedDate =
+        dateInput.value;
 
-    <p><strong>Followers:</strong> ${user.followers}</p>
+    result.innerHTML = `
+        <h2 class="loading">
+            Loading NASA Data...
+        </h2>
+    `;
 
-    <p><strong>Following:</strong> ${user.following}</p>
+    try {
 
-    <p><strong>Public Repositories:</strong> ${user.public_repos}</p>
-`;
+        const response = await fetch(
+            `https://api.nasa.gov/planetary/apod?api_key=LdtGV46MEL1DkfBngJDu9qWU6U2a1livxnWd2BGY&date=${selectedDate}`
+        );
 
-});
+        const data =
+            await response.json();
+
+        console.log(data);
+
+        if (data.error) {
+
+            result.innerHTML = `
+                <p class="error">
+                    ${data.error.message}
+                </p>
+            `;
+
+            return;
+        }
+
+        // IMAGE
+
+        if (data.media_type === "image") {
+
+            result.innerHTML = `
+                <div class="card">
+
+                    <h2>${data.title}</h2>
+
+                    <img
+                        src="${data.hdurl || data.url}"
+                        alt="${data.title}"
+                        class="nasa-image"
+                    >
+
+                    <p class="date">
+                        📅 ${data.date}
+                    </p>
+
+                    <p class="description">
+                        ${data.explanation}
+                    </p>
+
+                </div>
+            `;
+        }
+
+        // VIDEO
+
+        else if (data.media_type === "video") {
+
+            result.innerHTML = `
+                <div class="card">
+
+                    <h2>${data.title}</h2>
+
+                    <p class="date">
+                        📅 ${data.date}
+                    </p>
+
+                    <a
+                        href="${data.url}"
+                        target="_blank"
+                        class="video-btn"
+                    >
+                        ▶ Watch Video
+                    </a>
+
+                    <p class="description">
+                        ${data.explanation}
+                    </p>
+
+                </div>
+            `;
+        }
+
+        else {
+
+            result.innerHTML = `
+                <div class="card">
+                    <h2>${data.title}</h2>
+                    <p>${data.explanation}</p>
+                </div>
+            `;
+        }
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        result.innerHTML = `
+            <p class="error">
+                Failed to load NASA data.
+            </p>
+        `;
+    }
+}
+
+// Auto load today's APOD
+
+getNASAData();
