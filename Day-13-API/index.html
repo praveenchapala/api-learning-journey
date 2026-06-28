@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🎬 Movie Explorer</h1>
+
+        <p>
+            Search your favourite movies using TMDB API
+        </p>
+
+    </header>
+
+
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="movieInput"
+            placeholder="Search Movies...">
+
+        <button id="searchBtn">
+
+            🔍 Search
+
+        </button>
+
+    </section>
+
+
+    <section class="page-info">
+
+        <span id="pageNumber">
+
+            Page 1
+
+        </span>
+
+    </section>
+
+
+    <section id="movies">
+
+    </section>
+
+
+    <section class="pagination">
+
+        <button id="prevBtn">
+
+            ⬅ Previous
+
+        </button>
+
+        <button id="nextBtn">
+
+            Next ➡
+
+        </button>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
